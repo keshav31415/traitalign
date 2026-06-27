@@ -11,7 +11,6 @@ There are two primary files in this repository intended for execution on **Kaggl
 **Datasets Required for this Script**:
 - [MovieLens 1M Original](https://www.kaggle.com/datasets/odedgolden/movielens-1m-dataset)
 - [LastFM 360K Original](https://www.kaggle.com/datasets/neferfufi/lastfm)
-- [MovieLens 25M (for embedding references)](https://www.kaggle.com/datasets/garymk/movielens-25m-dataset)
 
 ### 2. `generate_embeddings.ipynb`
 **Purpose**: This notebook is responsible for generating the dense 384-dimensional semantic embeddings for all the movies in the MovieLens dataset. It processes the text string concatenations of movie titles and their associated genres by passing them through the `all-MiniLM-L6-v2` SentenceTransformer neural network. The resulting matrix (`P_i.npy`) is uploaded to Kaggle and attached to the master trainer.
