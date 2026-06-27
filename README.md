@@ -16,15 +16,15 @@ There are two primary files in this repository intended for execution on **Kaggl
 ### 2. `generate_embeddings.ipynb`
 **Purpose**: This notebook is responsible for generating the dense 384-dimensional semantic embeddings for all the movies in the MovieLens dataset. It processes the text string concatenations of movie titles and their associated genres by passing them through the `all-MiniLM-L6-v2` SentenceTransformer neural network. The resulting matrix (`P_i.npy`) is uploaded to Kaggle and attached to the master trainer.
 **Datasets Required for this Notebook**:
-- [MovieLens 25M Dataset](https://www.kaggle.com/datasets/garymk/movielens-25m-dataset) (used to fetch the large-scale `movies.csv` file containing the title strings and genres)
+- [MovieLens 25M Dataset](https://www.kaggle.com/datasets/garymk/movielens-25m-dataset) (Provides the `movies.csv` file, which contains the raw titles and genres that are passed into the `all-MiniLM-L6-v2` tokenizer to build the semantic strings.)
 
 ### 3. `traitalign_kaggle_trainer.ipynb`
 **Purpose**: This is the master training notebook. It implements the GNN encoders (GraphSAGE, GCN, GAT), the Trait-Behavior Alignment Head (MLP), and runs the unified multi-task optimization. It dynamically compresses features, concatenates demographics, and trains the model while evaluating NDCG and HR metrics.
 **Datasets Required for this Notebook**:
-- [TraitAlign Processed MovieLens 1M](https://www.kaggle.com/datasets/keshavshaurya/traitalign-movielens1m)
-- [TraitAlign Processed LastFM](https://www.kaggle.com/datasets/kkaushik06/traitalign-lastfm)
-- [Personality 2018 (Original)](https://www.kaggle.com/datasets/arslanali4343/top-personality-dataset)
-- [MovieLens MiniLM Embeddings](https://www.kaggle.com/datasets/kkaushik06/movielens-minilm-embeddings)
+- [TraitAlign Processed MovieLens 1M](https://www.kaggle.com/datasets/keshavshaurya/traitalign-movielens1m) (Provides the processed interactions, MiniLM occupation embeddings, and the engineered behavioral proxies to train the MLP alignment head).
+- [TraitAlign Processed LastFM](https://www.kaggle.com/datasets/kkaushik06/traitalign-lastfm) (Provides the processed play interactions, SVD country embeddings, and behavioral proxies for the LastFM evaluation).
+- [Personality 2018 (Original)](https://www.kaggle.com/datasets/arslanali4343/top-personality-dataset) (Provides the raw user-item interactions and the 5-dimensional numerical Big Five (OCEAN) traits used directly as auxiliary features).
+- [MovieLens MiniLM Embeddings](https://www.kaggle.com/datasets/kkaushik06/movielens-minilm-embeddings) (Provides the `P_i.npy` file, which contains the 384-dimensional dense semantic representations for all MovieLens items. These are loaded directly into the GNN as the initial node feature matrix).
 
 ---
 
