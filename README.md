@@ -23,6 +23,7 @@ There are two primary files in this repository intended for execution on **Kaggl
 - [TraitAlign Processed MovieLens 1M](https://www.kaggle.com/datasets/keshavshaurya/traitalign-movielens1m) (Provides the processed interactions, MiniLM occupation embeddings, and the engineered behavioral proxies to train the MLP alignment head).
 - [TraitAlign Processed LastFM](https://www.kaggle.com/datasets/kkaushik06/traitalign-lastfm) (Provides the processed play interactions, SVD country embeddings, and behavioral proxies for the LastFM evaluation).
 - [Personality 2018 (Original)](https://www.kaggle.com/datasets/arslanali4343/top-personality-dataset) (Provides the raw user-item interactions and the 5-dimensional numerical Big Five (OCEAN) traits used directly as auxiliary features).
+- [MovieLens 25M Dataset](https://www.kaggle.com/datasets/garymk/movielens-25m-dataset) (Required when evaluating Personality18: the `movies.csv` file is loaded to dynamically attach 'genres' metadata to the Personality18 ratings, which don't have genres natively).
 - [MovieLens MiniLM Embeddings](https://www.kaggle.com/datasets/kkaushik06/movielens-minilm-embeddings) (Provides the `P_i.npy` file, which contains the 384-dimensional dense semantic representations for all MovieLens items. These are loaded directly into the GNN as the initial node feature matrix).
 
 ---
